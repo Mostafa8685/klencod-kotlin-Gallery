@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- أذونات قراءة الصور والفيديو من الهاتف (Android 13+ والإصدارات الأقدم) -->
+    <!-- أذونات قراءة الصور والفيديو والصوتيات من الهاتف (Android 13+ والإصدارات الأقدم) -->
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <!-- Android 14+: الوصول الجزئي (الصور المختارة فقط) -->
+    <uses-permission android:name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED" />
+    <!-- Android 12+: اختياري، يتيح الحذف/الإدارة بدون نافذة تأكيد بعد موافقة المستخدم من الإعدادات -->
+    <uses-permission
+        android:name="android.permission.MANAGE_MEDIA"
+        tools:ignore="ProtectedPermissions" />
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
@@ -11,14 +19,18 @@
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="29" />
 
-    <!-- أذونات البصمة والحماية البيومترية لقفل الاستديو -->
+    <!-- أذونات البصمة والحماية البيومترية للخزنة الخاصة (بصمة الشاشة / الجانبية / الخلفية / الوجه) -->
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
+        android:fullBackupContent="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:hardwareAccelerated="true"
+        android:largeHeap="true"
         android:icon="@drawable/app_icon"
-        android:label="@string/app_name"
+        android:label="${appName}"
         android:roundIcon="@drawable/app_icon"
         android:supportsRtl="true"
         android:theme="@android:style/Theme.DeviceDefault.NoActionBar">
@@ -26,13 +38,64 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:configChanges="orientation|screenSize|keyboardHidden|uiMode"
+            android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|keyboardHidden|uiMode"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- الخزنة الخاصة (مشفّرة بـ AES-256، بكلمة سر وبصمة مستقلتين) -->
+        <activity
+            android:name=".VaultActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|keyboardHidden|uiMode"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.DeviceDefault.NoActionBar" />
+
+        <!-- إزالة العناصر من الصور بالذكاء الاصطناعي العصبي المحلي -->
+        <activity
+            android:name=".EraserActivity"
+            android:exported="false"
+            android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|keyboardHidden|uiMode"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.DeviceDefault.NoActionBar" />
+
+        <!-- استوديو مونتاج الفيديو الاحترافي -->
+        <activity
+            android:name=".VideoEditorActivity"
+            android:exported="false"
+            android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|keyboardHidden|uiMode"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.DeviceDefault.NoActionBar" />
+
+        <!-- ودجتس الشاشة الرئيسية -->
+        <receiver
+            android:name=".MangoPhotoWidgetProvider"
+            android:exported="true"
+            android:label="Mango Gallery • ذكريات المعرض">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.m3rd.app.WIDGET_REFRESH" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/mango_widget_photo_info" />
+        </receiver>
+
+        <receiver
+            android:name=".MangoQuickWidgetProvider"
+            android:exported="true"
+            android:label="Mango Gallery • مركز التحكم السريع">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/mango_widget_quick_info" />
+        </receiver>
 
     </application>
 </manifest>

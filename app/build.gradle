@@ -8,11 +8,39 @@ android {
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.m3rd.app"
         minSdk 24
         targetSdk 34
         versionCode 1
         versionName "1.0"
+    }
+
+    flavorDimensions = ["edition"]
+
+    productFlavors {
+        lite {
+            dimension "edition"
+            applicationId "com.mangog.lite"
+            versionNameSuffix "-lite"
+            manifestPlaceholders = [
+                appName: "Mango Gallery Lite"
+            ]
+            buildConfigField "boolean", "IS_PRO_BUILD", "false"
+            buildConfigField "String", "STORE_PURCHASE_URL", "\"https://apk3rade.mangoad.online/app/com.mangog.app\""
+        }
+        pro {
+            dimension "edition"
+            applicationId "com.mangog.app"
+            versionNameSuffix "-pro"
+            manifestPlaceholders = [
+                appName: "Mango Gallery Pro"
+            ]
+            buildConfigField "boolean", "IS_PRO_BUILD", "true"
+            buildConfigField "String", "STORE_PURCHASE_URL", "\"https://apk3rade.mangoad.online/app/com.mangog.app\""
+        }
+    }
+
+    buildFeatures {
+        buildConfig true
     }
 
     buildTypes {
@@ -20,7 +48,8 @@ android {
             minifyEnabled false
         }
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -45,5 +74,4 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
-    // kotlin-stdlib مضمّن تلقائياً من Kotlin Gradle Plugin
 }
