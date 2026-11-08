@@ -24,7 +24,8 @@ android {
             manifestPlaceholders = [
                 appName: "Mango Gallery Lite"
             ]
-            buildConfigField "boolean", "IS_PRO_BUILD", "false"
+            buildConfigField "boolean", "IS_PRO_BUILD","true"
+             
             buildConfigField "String", "STORE_PURCHASE_URL", "\"https://apk3rade.mangoad.online/app/com.mangog.app\""
         }
         pro {
