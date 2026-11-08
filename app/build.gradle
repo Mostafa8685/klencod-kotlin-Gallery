@@ -17,16 +17,7 @@ android {
     flavorDimensions = ["edition"]
 
     productFlavors {
-        lite {
-            dimension "edition"
-            applicationId "com.mangog.lite"
-            versionNameSuffix "-lite"
-            manifestPlaceholders = [
-                appName: "Gallery Lite"
-            ]
-            buildConfigField "boolean", "IS_PRO_BUILD", "true"
-            buildConfigField "String", "STORE_PURCHASE_URL", "\"https://apk3rade.mangoad.online/app/com.mangog.app\""
-        }
+     
         pro {
             dimension "edition"
             applicationId "com.mangog.app"
@@ -34,7 +25,7 @@ android {
             manifestPlaceholders = [
                 appName: "Gallery Pro"
             ]
-            buildConfigField "boolean", "IS_PRO_BUILD", "flse"
+            buildConfigField "boolean", "IS_PRO_BUILD", "true"
             buildConfigField "String", "STORE_PURCHASE_URL", "\"https://apk3rade.mangoad.online/app/com.mangog.app\""
         }
     }
