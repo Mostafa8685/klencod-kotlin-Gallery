@@ -34,7 +34,7 @@ android {
             manifestPlaceholders = [
                 appName: "Gallery Pro"
             ]
-            buildConfigField "boolean", "IS_PRO_BUILD", "true"
+            buildConfigField "boolean", "IS_PRO_BUILD", "flse"
             buildConfigField "String", "STORE_PURCHASE_URL", "\"https://apk3rade.mangoad.online/app/com.mangog.app\""
         }
     }
