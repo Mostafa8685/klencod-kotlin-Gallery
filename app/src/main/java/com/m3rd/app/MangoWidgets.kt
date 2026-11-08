@@ -170,7 +170,7 @@ class MangoPhotoWidgetProvider : AppWidgetProvider() {
 
             if (!hasMediaPermission(ctx)) {
                 views.setImageViewBitmap(R.id.widget_image, null)
-                views.setTextViewText(R.id.widget_caption, "Mango Gallery")
+                views.setTextViewText(R.id.widget_caption, "Gallery Pro")
                 views.setTextViewText(R.id.widget_subcaption, "اضغط لمنح إذن عرض الذكريات والصور")
                 mgr.updateAppWidget(id, views)
                 return
@@ -182,7 +182,7 @@ class MangoPhotoWidgetProvider : AppWidgetProvider() {
 
             if (pick == null || bmp == null) {
                 views.setImageViewBitmap(R.id.widget_image, null)
-                views.setTextViewText(R.id.widget_caption, "Mango Gallery ($tierTag)")
+                views.setTextViewText(R.id.widget_caption, "Gallery Pro ($tierTag)")
                 views.setTextViewText(R.id.widget_subcaption, "التقط صوراً جديدة لتظهر ذكرياتك هنا")
             } else {
                 val r = 26f * ctx.resources.displayMetrics.density * (bmp.width / 360f)
@@ -193,7 +193,7 @@ class MangoPhotoWidgetProvider : AppWidgetProvider() {
                 )
                 views.setTextViewText(
                     R.id.widget_subcaption,
-                    "Mango Gallery ($tierTag) • ${pick.totalPhotos} صورة في معرضك"
+                    "Gallery Pro ($tierTag) • ${pick.totalPhotos} صورة في معرضك"
                 )
             }
             mgr.updateAppWidget(id, views)
@@ -280,7 +280,7 @@ class MangoQuickWidgetProvider : AppWidgetProvider() {
             val v = RemoteViews(context.packageName, R.layout.mango_widget_quick)
             v.setTextViewText(
                 R.id.quick_stats_header,
-                "Mango Gallery • $pCount صورة • $vCount فيديو • الخزنة: $vaultCount"
+                "Gallery Pro • $pCount صورة • $vCount فيديو • الخزنة: $vaultCount"
             )
             v.setTextViewText(
                 R.id.quick_tier_badge,

@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:scaleType="centerCrop" />
 
-    <!-- شارة التاريخ والذاكرة العلوية بتصميم كبسولة زجاجية أنيقة -->
+    <!-- شارة التاريخ والذاكرة العلوية -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- تدرج سفلي أنيق مع العنوان والتفاصيل وشارة النسخة -->
+    <!-- تدرج سفلي مع العنوان والتفاصيل -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="1"
-            android:text="Mango Gallery"
+            android:text="Gallery Pro"
             android:textColor="#FFFFFFFF"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -79,7 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:maxLines="1"
-            android:text="ذكرياتك المميزة من معرضك"
+            android:text="ذكرياتك المميزة بدقة فائقة"
             android:textColor="#DDE5F0"
             android:textSize="11.5sp" />
     </LinearLayout>

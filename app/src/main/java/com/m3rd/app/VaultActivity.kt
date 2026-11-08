@@ -427,7 +427,7 @@ class VaultActivity : Activity() {
             busyExternal = true
             val bioInfo = detectBiometricHardware()
             val builder = BiometricPrompt.Builder(this)
-                .setTitle("الخزنة الخاصة • Mango Gallery")
+                .setTitle("الخزنة الخاصة • Gallery Pro")
                 .setSubtitle(subtitle)
                 .setDescription(bioInfo.sensorDescriptionAr)
                 .setNegativeButton("إدخال رمز PIN", mainExecutor) { _, _ ->
@@ -1436,7 +1436,7 @@ class VaultActivity : Activity() {
             AlertDialog.Builder(this)
                 .setTitle("حد الخزنة في النسخة المجانية (Lite)")
                 .setMessage("النسخة المجانية تتيح حتى ${MangoLicenseManager.LITE_VAULT_MAX_ITEMS} عنصراً في الخزنة الخاصة (متبقي لديك: $allowed).\n\nللإضافة غير المحدودة يمكنك شراء وتنزيل النسخة الكاملة Mango Pro الآن عبر متجرنا.")
-                .setPositiveButton("شراء Mango Pro الكاملة") { _, _ ->
+                .setPositiveButton("حسناً") { _, _ ->
                     MangoLicenseManager.openStorePurchasePage(this)
                 }
                 .setNegativeButton("إلغاء", null)

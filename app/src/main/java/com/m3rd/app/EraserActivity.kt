@@ -441,7 +441,7 @@ class EraserActivity : Activity() {
                 AlertDialog.Builder(this)
                     .setTitle("الحد اليومي للنسخة المجانية (Lite)")
                     .setMessage("استهلكت عدد المحاولات اليومية المجانية (${MangoLicenseManager.LITE_DAILY_AI_LIMIT} محاولات يومياً).\n\nللحصول على مسح عصبي غير محدود بالدقة الفائقة، يمكنك شراء النسخة الكاملة Mango Pro الآن عبر متجرنا.")
-                    .setPositiveButton("شراء Mango Pro الكاملة") { _, _ ->
+                    .setPositiveButton("حسناً") { _, _ ->
                         MangoLicenseManager.openStorePurchasePage(this)
                     }
                     .setNegativeButton("إلغاء", null)
@@ -534,7 +534,7 @@ class EraserActivity : Activity() {
             handler.post {
                 processing = false
                 if (ok) {
-                    Toast.makeText(this, "تم حفظ الصورة في ألبوم Mango Gallery", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "تم حفظ الصورة في ألبوم Gallery Pro", Toast.LENGTH_LONG).show()
                     finish()
                 } else {
                     Toast.makeText(this, "تعذر حفظ الصورة", Toast.LENGTH_SHORT).show()

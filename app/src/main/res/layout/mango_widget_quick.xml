@@ -25,7 +25,7 @@
             android:layout_weight="1"
             android:gravity="start|center_vertical"
             android:maxLines="1"
-            android:text="Mango Gallery • مركز التحكم"
+            android:text="Gallery Pro • مركز التحكم"
             android:textColor="#FF8CD0FA"
             android:textSize="11.5sp"
             android:textStyle="bold" />

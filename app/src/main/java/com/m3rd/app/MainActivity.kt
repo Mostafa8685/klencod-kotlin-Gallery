@@ -1917,7 +1917,7 @@ class MainActivity : Activity() {
             setOnClickListener { showAboutBrandDialog() }
         }
         val brandTitle = TextView(this).apply {
-            text = "Mango Gallery"
+            text = "Gallery Pro"
             textSize = 19f
             typeface = Typeface.DEFAULT_BOLD
             setTextColor(colorTextPrimary)
@@ -5067,7 +5067,7 @@ class MainActivity : Activity() {
         }
         box.addView(createAppLogoBadge(72))
         val titleTv = TextView(this).apply {
-            text = "Mango Gallery"
+            text = "Gallery Pro"
             textSize = 17f
             typeface = Typeface.DEFAULT_BOLD
             setTextColor(colorTextPrimary)
@@ -6636,7 +6636,7 @@ class MainActivity : Activity() {
             closeOverlay()
         }
         val headerTitle = TextView(this).apply {
-            text = "إعدادات Mango Gallery الاحترافية"
+            text = "إعدادات Gallery Pro"
             textSize = 20f
             typeface = Typeface.DEFAULT_BOLD
             setTextColor(colorTextPrimary)
@@ -6753,7 +6753,7 @@ class MainActivity : Activity() {
             layoutDirection = View.LAYOUT_DIRECTION_LTR
         }
         val licTag = TextView(this).apply {
-            text = if (isPro) "PRO LICENSED" else "LITE FREE EDITION"
+            text = if (isPro) "PRO LICENSED" else "PRO EDITION"
             textSize = 11.5f
             typeface = Typeface.DEFAULT_BOLD
             setTextColor(Color.WHITE)
@@ -6776,7 +6776,7 @@ class MainActivity : Activity() {
             licTopRow.addView(keyInputBtn, LinearLayout.LayoutParams(-2, -2).apply { rightMargin = dp(6) })
         }
         val activateBtn = TextView(this).apply {
-            text = if (isPro) "ترخيص Mango Pro دائم" else "شراء النسخة الكاملة"
+            text = if (isPro) "ترخيص Mango Pro دائم" else "نسخة Pro كاملة ومفعلة"
             textSize = 12.5f
             typeface = Typeface.DEFAULT_BOLD
             setTextColor(Color.WHITE)
@@ -6828,7 +6828,7 @@ class MainActivity : Activity() {
             gravity = Gravity.RIGHT
         }
         heroInfoCol.addView(TextView(this).apply {
-            text = "Mango Gallery Pro"
+            text = "Gallery Pro"
             textSize = 19f
             typeface = Typeface.DEFAULT_BOLD
             setTextColor(Color.WHITE)
@@ -8078,7 +8078,7 @@ class MainActivity : Activity() {
                     "إذا قمت بشراء التطبيق من المتجر، أدخل كود الترخيص أدناه لتفعيله فوراً."
             )
             .setView(input)
-            .setPositiveButton("شراء Mango Pro من المتجر") { _, _ ->
+            .setPositiveButton("حفظ") { _, _ ->
                 MangoLicenseManager.openStorePurchasePage(this)
             }
             .setNeutralButton("تفعيل كود الشراء") { _, _ ->

@@ -4,30 +4,15 @@ plugins {
 }
 
 android {
-    namespace "com.m3rd.app"
+    namespace "com.mangog.app"
     compileSdk 34
 
     defaultConfig {
+        applicationId "com.mangog.app"
         minSdk 24
         targetSdk 34
-        versionCode 1
-        versionName "1.0"
-    }
-
-    flavorDimensions = ["edition"]
-
-    productFlavors {
-     
-        pro {
-            dimension "edition"
-            applicationId "com.mangog.app"
-            versionNameSuffix "-pro"
-            manifestPlaceholders = [
-                appName: "Gallery Pro"
-            ]
-            buildConfigField "boolean", "IS_PRO_BUILD", "true"
-            buildConfigField "String", "STORE_PURCHASE_URL", "\"https://apk3rade.mangoad.online/app/com.mangog.app\""
-        }
+        versionCode 2
+        versionName "2.0-Pro"
     }
 
     buildFeatures {
@@ -37,29 +22,12 @@ android {
     buildTypes {
         debug {
             minifyEnabled false
+            applicationIdSuffix ""
         }
         release {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-
-    // نسخ وتصدير ملفات الـ APK تلقائياً إلى app/build/outputs/apk/debug/ للتوافق مع سير عمل Klencod و GitHub Actions
-    applicationVariants.all { variant ->
-        variant.outputs.all { output ->
-            def outputFile = output.outputFile
-            if (outputFile != null && outputFile.name.endsWith('.apk')) {
-                def targetDir = new File(project.buildDir, "outputs/apk/debug")
-                tasks.named("assemble${variant.name.capitalize()}").configure {
-                    doLast {
-                        copy {
-                            from outputFile
-                            into targetDir
-                        }
-                    }
-                }
-            }
         }
     }
 

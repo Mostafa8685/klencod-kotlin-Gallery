@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
     <!-- Android 14+: الوصول الجزئي (الصور المختارة فقط) -->
     <uses-permission android:name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED" />
-    <!-- Android 12+: اختياري، يتيح الحذف/الإدارة بدون نافذة تأكيد بعد موافقة المستخدم من الإعدادات -->
+    <!-- Android 12+: إدارة الوسائط السريعة بدون نافذة تأكيد -->
     <uses-permission
         android:name="android.permission.MANAGE_MEDIA"
         tools:ignore="ProtectedPermissions" />
@@ -30,13 +30,13 @@
         android:hardwareAccelerated="true"
         android:largeHeap="true"
         android:icon="@drawable/app_icon"
-        android:label="${appName}"
+        android:label="@string/app_name"
         android:roundIcon="@drawable/app_icon"
         android:supportsRtl="true"
         android:theme="@android:style/Theme.DeviceDefault.NoActionBar">
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.m3rd.app.MainActivity"
             android:exported="true"
             android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|keyboardHidden|uiMode"
             android:screenOrientation="portrait">
@@ -46,18 +46,18 @@
             </intent-filter>
         </activity>
 
-        <!-- الخزنة الخاصة (مشفّرة بـ AES-256، بكلمة سر وبصمة مستقلتين) -->
+        <!-- الخزنة الخاصة (مشفّرة بـ AES-256، بكلمة سر وبصمة مستقلتين وغير محدودة) -->
         <activity
-            android:name=".VaultActivity"
+            android:name="com.m3rd.app.VaultActivity"
             android:exported="false"
             android:excludeFromRecents="true"
             android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|keyboardHidden|uiMode"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.DeviceDefault.NoActionBar" />
 
-        <!-- إزالة العناصر من الصور بالذكاء الاصطناعي العصبي المحلي -->
+        <!-- إزالة العناصر من الصور بالذكاء الاصطناعي العصبي المحلي فائق الدقة -->
         <activity
-            android:name=".EraserActivity"
+            android:name="com.m3rd.app.EraserActivity"
             android:exported="false"
             android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|keyboardHidden|uiMode"
             android:screenOrientation="portrait"
@@ -65,17 +65,17 @@
 
         <!-- استوديو مونتاج الفيديو الاحترافي -->
         <activity
-            android:name=".VideoEditorActivity"
+            android:name="com.m3rd.app.VideoEditorActivity"
             android:exported="false"
             android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|keyboardHidden|uiMode"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.DeviceDefault.NoActionBar" />
 
-        <!-- ودجتس الشاشة الرئيسية -->
+        <!-- ودجتس الشاشة الرئيسية الاحترافية -->
         <receiver
-            android:name=".MangoPhotoWidgetProvider"
+            android:name="com.m3rd.app.MangoPhotoWidgetProvider"
             android:exported="true"
-            android:label="Mango Gallery • ذكريات المعرض">
+            android:label="Gallery Pro • ذكريات المعرض">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="com.m3rd.app.WIDGET_REFRESH" />
@@ -86,9 +86,9 @@
         </receiver>
 
         <receiver
-            android:name=".MangoQuickWidgetProvider"
+            android:name="com.m3rd.app.MangoQuickWidgetProvider"
             android:exported="true"
-            android:label="Mango Gallery • مركز التحكم السريع">
+            android:label="Gallery Pro • مركز التحكم السريع">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>

@@ -670,7 +670,7 @@ class VideoEditorActivity : Activity() {
             android.app.AlertDialog.Builder(this)
                 .setTitle("محرك الترجمة في Mango Pro")
                 .setMessage("تحميل ومزامنة ملفات الترجمة (.SRT / .VTT) على الفيديو متاح حصرياً في نسخة Mango Pro المدفوعة.\n\nاحصل على النسخة الكاملة الآن للاستمتاع بجميع ميزات المونتاج والترجمة الاحترافية.")
-                .setPositiveButton("شراء Mango Pro الكاملة") { _, _ ->
+                .setPositiveButton("تصدير") { _, _ ->
                     MangoLicenseManager.openStorePurchasePage(this)
                 }
                 .setNegativeButton("إلغاء", null)
@@ -826,7 +826,7 @@ class VideoEditorActivity : Activity() {
             handler.post {
                 Toast.makeText(
                     this,
-                    if (saved) "تم حفظ لقطة الإطار بدقة عالية في Mango Gallery" else "تعذر استخراج اللقطة",
+                    if (saved) "تم حفظ لقطة الإطار بدقة عالية في Gallery Pro" else "تعذر استخراج اللقطة",
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -841,7 +841,7 @@ class VideoEditorActivity : Activity() {
             android.app.AlertDialog.Builder(this)
                 .setTitle("ميزة المونتاج الممتد في Mango Pro")
                 .setMessage("النسخة المجانية (Lite) تتيح تصدير مقاطع حتى ٣٠ ثانية فقط (المدة المحددة حالياً: ${formatMs(cutDurationMs)}).\n\nلتصدير فيديوهات غير محدودة المدة بدقة كاملة، يمكنك شراء وتنزيل نسخة Mango Pro الآن عبر متجرنا.")
-                .setPositiveButton("شراء Mango Pro الكاملة") { _, _ ->
+                .setPositiveButton("تصدير") { _, _ ->
                     MangoLicenseManager.openStorePurchasePage(this)
                 }
                 .setNegativeButton("قص لـ ٣٠ ثانية وتصدير") { _, _ ->
@@ -960,7 +960,7 @@ class VideoEditorActivity : Activity() {
                 exportOverlay.visibility = View.GONE
                 if (isFinishing) return@post
                 if (success) {
-                    Toast.makeText(this, "تم تصدير وحفظ الفيديو المعدل في Mango Gallery بنجاح", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "تم تصدير وحفظ الفيديو المعدل في Gallery Pro بنجاح", Toast.LENGTH_LONG).show()
                     finish()
                 } else {
                     Toast.makeText(this, "تعذر تصدير هذا النطاق، جرّب توسيع مدة القص قليلاً", Toast.LENGTH_LONG).show()
