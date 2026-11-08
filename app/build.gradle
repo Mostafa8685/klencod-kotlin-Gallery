@@ -22,10 +22,9 @@ android {
             applicationId "com.mangog.lite"
             versionNameSuffix "-lite"
             manifestPlaceholders = [
-                appName: "Mango Gallery Lite"
+                appName: "Gallery Lite"
             ]
-            buildConfigField "boolean", "IS_PRO_BUILD","true"
-             
+            buildConfigField "boolean", "IS_PRO_BUILD", "true"
             buildConfigField "String", "STORE_PURCHASE_URL", "\"https://apk3rade.mangoad.online/app/com.mangog.app\""
         }
         pro {
@@ -33,7 +32,7 @@ android {
             applicationId "com.mangog.app"
             versionNameSuffix "-pro"
             manifestPlaceholders = [
-                appName: "Mango Gallery Pro"
+                appName: "Gallery Pro"
             ]
             buildConfigField "boolean", "IS_PRO_BUILD", "true"
             buildConfigField "String", "STORE_PURCHASE_URL", "\"https://apk3rade.mangoad.online/app/com.mangog.app\""
