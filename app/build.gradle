@@ -54,6 +54,24 @@ android {
         }
     }
 
+    // نسخ وتصدير ملفات الـ APK تلقائياً إلى app/build/outputs/apk/debug/ للتوافق مع سير عمل Klencod و GitHub Actions
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                def targetDir = new File(project.buildDir, "outputs/apk/debug")
+                tasks.named("assemble${variant.name.capitalize()}").configure {
+                    doLast {
+                        copy {
+                            from outputFile
+                            into targetDir
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
